@@ -234,7 +234,7 @@ MIT License - feel free to use this project for learning purposes
 
 ## 👤 Author
 
-Your Name - [Your GitHub](https://github.com/olayinkajohnsonige)
+Johnson Ige Olayinka
 
 ## 🙏 Acknowledgments
 

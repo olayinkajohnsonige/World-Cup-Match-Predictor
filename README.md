@@ -1,5 +1,11 @@
 # ⚽ World Cup Match Predictor
 
+## 🚀 Live Demo
+
+**Try the app here:** [World Cup Match Predictor](https://world-cup-match-predictor-cefrrvgbjrbpwpirjv5efb.streamlit.app/)
+
+Click the link above to make predictions for any World Cup match!
+
 A machine learning-powered application that predicts World Cup football match outcomes using historical data and advanced feature engineering.
 
 ## 📊 Project Overview

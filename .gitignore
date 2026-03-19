@@ -6,3 +6,28 @@ matches_1930_2022.csv
 
 # Ignore Jupyter notebook checkpoints
 .ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+
+# Data
+*.csv
+data/raw/
+
+# Models
+models/*.pkl
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

@@ -63,8 +63,8 @@ def predict_match(home_team, away_team, year, round_name, host_country):
         print(f"Away: {away_team} (Win%: {away_win_pct:.1f}%, Form: {away_form:.1f}%)")
         print(f"Strength Difference: {home_strength:.1f}%")
         
-        # Rule-based prediction
-        if home_strength > 20:
+        # ADJUSTED RULE-BASED PREDICTION WITH TUNED THRESHOLDS
+        if home_strength > 25:  # Increased from 20
             # Home team significantly stronger
             prediction = 'Home Win'
             confidence = min(85, 55 + (home_strength / 3))
@@ -73,7 +73,7 @@ def predict_match(home_team, away_team, year, round_name, host_country):
                 'Draw': 30 - (home_strength / 10),
                 'Away Win': 40 - (home_strength / 5)
             }
-        elif home_strength < -20:
+        elif home_strength < -25:  # Decreased from -20 (more away wins)
             # Away team significantly stronger
             prediction = 'Away Win'
             confidence = min(85, 55 + (abs(home_strength) / 3))
@@ -82,7 +82,7 @@ def predict_match(home_team, away_team, year, round_name, host_country):
                 'Draw': 30 - (abs(home_strength) / 10),
                 'Home Win': 40 - (abs(home_strength) / 5)
             }
-        elif abs(home_strength) < 5:
+        elif abs(home_strength) < 8:  # Increased from 5 (wider draw range)
             # Very close match - likely competitive or draw
             prediction = 'Draw'
             confidence = 50
@@ -92,19 +92,23 @@ def predict_match(home_team, away_team, year, round_name, host_country):
                 'Away Win': 25
             }
         else:
-            # Slight advantage to one team
+            # Slight advantage to one team (more balanced)
             if home_strength > 0:
                 prediction = 'Home Win'
                 confidence = 40 + home_strength
+                probabilities = {
+                    'Home Win': 48 + (home_strength / 2),
+                    'Draw': 38 - abs(home_strength / 3),
+                    'Away Win': 42 - (home_strength / 2)
+                }
             else:
                 prediction = 'Away Win'
                 confidence = 40 + abs(home_strength)
-            
-            probabilities = {
-                'Home Win': 45 + (home_strength / 2),
-                'Draw': 40 - abs(home_strength / 2),
-                'Away Win': 45 - (home_strength / 2)
-            }
+                probabilities = {
+                    'Away Win': 48 + (abs(home_strength) / 2),
+                    'Draw': 38 - abs(home_strength / 3),
+                    'Home Win': 42 - (abs(home_strength) / 2)
+                }
         
         # Normalize probabilities to sum to 100
         total = sum(probabilities.values())

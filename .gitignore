@@ -1,12 +1,9 @@
-# Ignore large raw datasets
-matches_1930_2022.csv
-
+# Ignore large raw datasets - COMMENTED OUT, WE NEED THIS FOR DEPLOYMENT
+# matches_1930_2022.csv
 # But keep the cleaned dataset
 !Match_Analysis_cleaned.csv
-
 # Ignore Jupyter notebook checkpoints
 .ipynb_checkpoints/
-
 # Python
 __pycache__/
 *.py[cod]
@@ -15,19 +12,13 @@ __pycache__/
 .Python
 env/
 venv/
-
-# Data
-*.csv
-data/raw/
-
-# Models
-models/*.pkl
-
+# Data - KEEP THE CSV FOR DEPLOYMENT
+# *.csv
+# data/raw/
 # IDE
 .vscode/
 .idea/
 *.swp
-
 # OS
 .DS_Store
 Thumbs.db

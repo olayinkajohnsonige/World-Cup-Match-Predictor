@@ -39,7 +39,9 @@ World-Cup-Match-Predictor/
 │   ├── model.pkl                         # Trained XGBoost model (backup)
 │   └── feature_names.pkl                 # Feature ordering
 ├── notebooks/                            # Jupyter notebooks for exploration
+    └──analysis.ipynb
 ├── scripts/                              # Data cleaning scripts
+    └──cleaned_data_sample.csv
 ├── src/
 │   ├── __init__.py
 │   ├── data_loader.py                    # Load and prepare data

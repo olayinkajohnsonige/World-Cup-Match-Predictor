@@ -15,7 +15,7 @@ with open('models/feature_names.pkl', 'rb') as f:
 
 # Load historical data once for team statistics
 try:
-    historical_data = load_data("data/processed/raw/matches_1930_2022.csv")
+    historical_data = load_data("data/raw/matches_1930_2022.csv")  # FIXED PATH
     print(f"✅ Loaded {len(historical_data)} historical matches")
     historical_data = preprocess_data(historical_data)
     historical_data = engineer_features(historical_data)
@@ -23,6 +23,7 @@ try:
 except Exception as e:
     print(f"❌ Error loading historical data: {e}")
     historical_data = None
+
 
 def get_team_stats(team_name, is_home=True):
     """Get historical stats for a team from the dataset"""
